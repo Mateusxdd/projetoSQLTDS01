@@ -1,7 +1,7 @@
 -- apagar o db
 drop database dbEstacionamento;
 -- criar o db
-create database dbEstacionamento;
+create database dbEstacionamento; 
 -- acessar o db
 use dbEstacionamento;
 -- criar as tabelas

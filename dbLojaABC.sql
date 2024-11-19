@@ -24,5 +24,5 @@ show tables;
 -- visualizando a estrutura das tabelas
 desc tbFuncionarios;
 -- inserir registros no banco de dados
-insert into tbFuncionarios(codFunc,nome,email,cpf,endereco,cep,numero,bairro,cidade,estado,telefone,nascimento,salario)values(1,'Francisca da Silva','Francisca.silva@hotmail.com','458.586.987-88','Rua Dr. Antonio Bento','04750-000','355','Santo Amaro','São Paulo','SP','93737-3737','2000/10/31',1500.50)
+insert into tbFuncionarios(codFunc,nome,email,cpf,endereco,cep,numero,bairro,cidade,estado,telefone,nascimento,salario) values(1,'Francisca da Silva','Francisca.silva@hotmail.com','458.586.987-88','Rua Dr. Antonio Bento','04750-000','355','Santo Amaro','São Paulo','SP','93737-3737','2000/10/31',1500.50)
 select * from tbFuncionarios;
