@@ -30,7 +30,7 @@ primary key(codForn)
 );
 
 create table tbUsuarios(
-codUsu int not null,
+codUsu int not null auto_increment,
 nome varchar(50) not null,
 senha varchar(20) not null,
 codFunc int not null,
@@ -49,9 +49,8 @@ quantidade int,
 preco decimal(9,2),
 codForn int not null,
 primary key(codProd),
-foreign key(codForn) references tbFornecedores(codForn)
+foreign key(codForn)references tbFornecedores(codForn)
 );
-
 create table tbVendas(
 codVend int not null auto_increment,
 valor decimal(9,2),
@@ -91,11 +90,18 @@ insert into tbFornecedores(nome,email,telefone,cnpj)values('Adega machado','adeg
 
 insert into tbUsuarios(nome,senha,codFunc)values('pedro.jose','Jose1231',3);
 insert into tbUsuarios(nome,senha,codFunc)values('Leticia Borges','654321',2);
-insert into tbUsuarios(nome,senha,codFunc)values('Leticia Borges','654321',2);
+insert into tbUsuarios(nome,senha,codFunc)values('Rogerio Santos','654321',1);
+insert into tbUsuarios(nome,senha,codFunc)values('Matias SIUUUUU','771232',4);
 
-insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,preco,codForn)values('papel sulfite','524515','2030/11/19','11:46:00',10,25.35,1);
-insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,preco,codForn)values('cartolina','521133','2030/11/20','12:00:00',20,25.50,3);
-insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,preco,codForn)values('papel sulfite','524515','2030/11/19','11:46:00',10,25.35,1);
+insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,preco,codForn)values('papel sulfite','524515','2030/11/19','2024/11/21','11:46:00',10,25.35,1);
+insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,preco,codForn)values('cartolina','521133','2030/11/20','2024/11/21','12:00:00',20,25.30,1);
+insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,preco,codForn)values('Folha A4','527777','2030/11/19','2024/11/21','11:46:00',5,100.00,1);
+insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,preco,codForn)values('Carro','231134','2030/11/19','2024/11/21','11:46:00',5,10000.00,2);
+
+insert into tbVendas(valor,quantidade,dataVend,horaVend,codUsu,codProd,codCli)values(25.30,2,'2024/11/21','08:40',2,2,3);
+insert into tbVendas(valor,quantidade,dataVend,horaVend,codUsu,codProd,codCli)values(25.35,5,'2024/11/21','08:40',2,1,1);
+insert into tbVendas(valor,quantidade,dataVend,horaVend,codUsu,codProd,codCli)values(25.30,4,'2024/11/21','08:40',4,2,2);
+insert into tbVendas(valor,quantidade,dataVend,horaVend,codUsu,codProd,codCli)values(10000.00,1,'2024/11/21','08:40',4,4,3);
 
 
 select * from tbFuncionarios;
@@ -103,3 +109,4 @@ select * from tbClientes;
 select * from tbFornecedores;
 select * from tbUsuarios;
 select * from tbProdutos;
+select * from tbVendas;
