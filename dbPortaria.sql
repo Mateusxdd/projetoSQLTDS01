@@ -73,10 +73,10 @@ desc tbFornecedores;
 desc tbProdutos;
 desc tbVendas;
 
-insert into tbFuncionarios(nome,rg,cpf,sexo,salario)values('Matias Rojas ','52.478.741-7','074.612.225-96','M',25000.00);
+insert into tbFuncionarios(nome,rg,cpf,sexo,salario)values('Mateus Anastacio Santos ','52.478.741-7','074.612.225-96','M',25000.00);
 insert into tbFuncionarios(nome,rg,cpf,sexo,salario)values('Leticia Borges','45.521.258-8','524.524.854-88','F',3500.45);
 insert into tbFuncionarios(nome,rg,cpf,sexo,salario)values('Pedro Jose','58.524.789-8','574.857.854-88','M',2555.56);
-insert into tbFuncionarios(nome,rg,cpf,sexo,salario)values('Larissa Rodrigues','85.854.742-8','524.854.879-91','F',4255.22);
+insert into tbFuncionarios(nome,rg,cpf,sexo,salario)values('Mateus','85.854.742-8','524.854.879-91','F',4255.22);
 
 insert into tbClientes(nome,email,telefone)values('Joana Antunes','joana.antunes@hotmail.com','95248-78597');
 insert into tbClientes(nome,email,telefone)values('Katia Assad','katia.assad@hotmail.com','99231-32134');
@@ -89,9 +89,9 @@ insert into tbFornecedores(nome,email,telefone,cnpj)values('Bar do Ze','zedobar@
 insert into tbFornecedores(nome,email,telefone,cnpj)values('Adega machado','adegaria_machado@gmail.com','99723-4545','49.096.777/0002-92');
 
 insert into tbUsuarios(nome,senha,codFunc)values('pedro.jose','Jose1231',3);
-insert into tbUsuarios(nome,senha,codFunc)values('Leticia Borges','654321',2);
-insert into tbUsuarios(nome,senha,codFunc)values('Rogerio Santos','654321',1);
-insert into tbUsuarios(nome,senha,codFunc)values('Matias SIUUUUU','771232',4);
+insert into tbUsuarios(nome,senha,codFunc)values('Leticia.Borges','654321',2);
+insert into tbUsuarios(nome,senha,codFunc)values('Fi do cr7','654321',1);
+insert into tbUsuarios(nome,senha,codFunc)values('Matias.SIUUUUU','771232',4);
 
 insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,preco,codForn)values('papel sulfite','524515','2030/11/19','2024/11/21','11:46:00',10,25.35,1);
 insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,preco,codForn)values('cartolina','521133','2030/11/20','2024/11/21','12:00:00',20,25.30,1);
@@ -110,3 +110,8 @@ select * from tbFornecedores;
 select * from tbUsuarios;
 select * from tbProdutos;
 select * from tbVendas;
+
+-- inner join
+
+select func.nome as  'Nome do Funcionario',usu.nome as 'Nome do Usuario'from tbUsuarios as usu inner join tbFuncionarios as func on usu.codFunc = func.codFunc where func.codFunc = 3;
+select func.nome as  'Nome do Funcionario',usu.nome as 'Nome do Usuario'from tbUsuarios as usu inner join tbFuncionarios as func on usu.codFunc = func.codFunc where func.nome like '%m%';
