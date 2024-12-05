@@ -11,7 +11,8 @@ rg char(13) unique,
 cpf char(14) not null unique,
 sexo char(1) default 'M' check(sexo in('F','M')),
 salario decimal(9,2) default 0 check(salario >=0),
-primary key (codFunc));
+primary key (codFunc)
+);
 
 create table tbClientes(
 codCli int not null auto_increment,
@@ -100,7 +101,7 @@ insert into tbProdutos(descricao,lote,validade,dataEntr,horaEntr,quantidade,prec
 
 insert into tbVendas(valor,quantidade,dataVend,horaVend,codUsu,codProd,codCli)values(25.30,2,'2024/11/21','08:40',2,2,3);
 insert into tbVendas(valor,quantidade,dataVend,horaVend,codUsu,codProd,codCli)values(25.35,5,'2024/11/21','08:40',2,1,1);
-insert into tbVendas(valor,quantidade,dataVend,horaVend,codUsu,codProd,codCli)values(25.30,4,'2024/11/21','08:40',4,2,2);
+insert into tbVendas(valor,quantidade,dataVend,horaVend,codUsu,codProd,codCli)values(25.30,4,'2024/11/21','08:40',3,2,2);
 insert into tbVendas(valor,quantidade,dataVend,horaVend,codUsu,codProd,codCli)values(10000.00,1,'2024/11/21','08:40',4,4,3);
 
 
@@ -115,3 +116,8 @@ select * from tbVendas;
 
 select func.nome as  'Nome do Funcionario',usu.nome as 'Nome do Usuario'from tbUsuarios as usu inner join tbFuncionarios as func on usu.codFunc = func.codFunc where func.codFunc = 3;
 select func.nome as  'Nome do Funcionario',usu.nome as 'Nome do Usuario'from tbUsuarios as usu inner join tbFuncionarios as func on usu.codFunc = func.codFunc where func.nome like '%m%';
+select func.nome as 'Funcionarios',cli.nome as 'Clientes',prod.descricao as 'Descricao',vend.quantidade as 'Quantidade',vend.valor as 'Valor' from tbVendas as vend inner join tbFuncionarios as func on func.codFunc = vend.codUsu inner join tbClientes as cli on vend.codCli = cli.codCli inner join tbProdutos as prod on vend.codProd = prod.codProd;
+
+-- perguntar para a tabela produtos: nome do fornecedor, lote, validade, email do fornecedor, quantidade de produto, Cnpj, preço do produto.
+
+select forn.nome as 'Fornecedor', prod.lote as 'Lote', prod.validade as 'Validade', forn.email as 'Email', prod.quantidade as 'Quantidade', forn.cnpj as 'CNPj', prod.preco as 'Preco do Produto' from tbProdutos as prod inner join tbFornecedores as forn on forn.codForn = forn.codForn;
